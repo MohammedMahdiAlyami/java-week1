@@ -1,1 +1,175 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        //Q1
+        for (int i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                System.out.printf("\n%d: fizz buzz",i);
+            } else if (i % 5 == 0) {
+                System.out.printf("\n%d: buzz",i);
+            } else if (i % 3 == 0) {
+                System.out.printf("\n%d: fizz",i);
+            }
+        }
 
+        //Q2
+        Scanner a = new Scanner(System.in);
+        System.out.print("please enter a string: ");
+        char[] letters = a.nextLine().toCharArray();
+        System.out.print("Reverse string: ");
+        for (int i = letters.length - 1; i >= 0; i--) {
+            System.out.print(letters[i]);
+        }
+
+        //Q3
+        Scanner b = new Scanner(System.in);
+        System.out.print("please enter a number: ");
+        int num1 = b.nextInt();
+        for (int i=0; i<10; i++) {
+            System.out.println(num1 +"*"+ (i + 1 ) + "=" +(num1*(i+1)));
+        }
+
+        //Q4
+        Scanner c = new Scanner(System.in);
+        int num;
+        int fac = 1;
+        System.out.print("please enter a number: ");
+        num = c.nextInt();
+        for(int i=1; i<=num; i++)
+        {
+            fac *= i;
+        }
+        System.out.println("Factorial: "+ fac);
+
+        //Q5
+        Scanner d = new Scanner(System.in);
+        System.out.print("please enter a number: ");
+        int num1 = d.nextInt();
+        System.out.print("please enter powar that number: ");
+        int num2 = d.nextInt();
+        int power = 1;
+        if (num2 >= 1) {
+            for (int i = 1; i <= num2; i++) {
+                power = power * num1;
+            }
+            System.out.print(power);
+        }
+
+        //Q6
+        int n;
+        int odd = 0;
+        int even = 0;
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the number:");
+        n = s.nextInt();
+        int[] a = new int[n];
+        System.out.print("Enter the elements:");
+        for(int i = 0; i < n; i++)
+        {
+            a[i] = s.nextInt();
+        }
+        for(int i = 0; i < n; i++)
+        {
+            if(a[i] % 2 == 0)
+            {
+                odd = even + a[i];
+            }
+            else
+            {
+                even = even + a[i];
+            }
+        }
+        System.out.println("Sum of Even Numbers:"+odd);
+        System.out.println("Sum of Odd Numbers:"+even);
+
+        //Q7
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a positive integer: ");
+        int num = sc.nextInt();
+        if (isPrime(num)) {
+            System.out.println(num + " is a prime number.");
+        } else {
+            System.out.println(num + " is not a prime number.");
+        }
+        sc.close();
+    }
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+
+
+        //Q8
+        Scanner e = new Scanner(System.in);
+        int number,
+                countPositive = 0,
+                countNegative = 0,
+                countZero = 0;
+
+        char choice;
+
+        do
+        {
+            System.out.print("please enter the number: ");
+            number = e.nextInt();
+
+            if(number > 0)
+            {
+                countPositive++;
+            }
+            else if(number < 0)
+            {
+                countNegative++;
+            }
+            else
+            {
+                countZero++;
+            }
+
+            System.out.print("Do you want to continue y/n? ");
+            choice = e.next().charAt(0);
+
+        }while(choice=='y' || choice == 'y');
+
+        System.out.println("Positive numbers: " + countPositive);
+        System.out.println("Negative numbers: " + countNegative);
+        System.out.println("Zero numbers: " + countZero);
+
+        //Q9
+        for (int week = 1; week <= 4; week++) {
+            System.out.println("Week " + week);
+            for (int day = 1; day <= 7; day++) {
+                System.out.println("Day" + day);
+            }
+            System.out.println();
+        }
+
+            //Q10
+        Scanner x = new Scanner(System.in);
+        System.out.print("please enter a word: ");
+        String word = x.next();
+        if (isPalindrome(word)) {
+            System.out.println(word + " is a palindrome.");
+        } else {
+            System.out.println(word + " is not a palindrome.");
+        }
+    }
+    public static boolean isPalindrome(String word) {
+        int length = word.length();
+        for (int i = 0; i < length / 2; i++) {
+            if (word.charAt(i) != word.charAt(length - i - 1)) {
+                return false;
+            }
+        }
+        return true;
+
+
+    }
+    }
